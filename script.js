@@ -13,10 +13,10 @@ function  opersPressed(even) {
 }
 document.querySelector('.eq').addEventListener('click', eqPressed);
 function eqPressed() {
-    if (display.value === 'Infinity') {
-        display.value = ('cannot be divided by zero')
+    if (display.value.endsWith("/0")) {
+        alert("cannot be divided by zero");
     }else {
-        display.value += eval(display.value);
+        display.value = eval(display.value);
     }
 }
 document.querySelector('.clear').addEventListener('click', clearAll);
@@ -24,8 +24,11 @@ document.querySelector('.clear').addEventListener('click', clearAll);
 function clearAll() {
     display.value = ' '
 }
-
 document.querySelector('back').addEventListener('click', backOneStep);
+
+function backOneStep() {
+    display.value = display.value.slice(0, -1);
+}
 
 
 
